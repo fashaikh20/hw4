@@ -1,16 +1,16 @@
-<h1>Login</h1>
+<h3>Login</h3>
 
 <%= form_with url: "/sessions" do |form| %>
   
-  <p>
+  <div class="mb-3">
     <%= form.label "email" %>
     <%= form.text_field "email" %>
+  </div>
+
+  <div class="mb-3">
     <%= form.label "password" %>
     <%= form.password_field "password" %>
-  </p>
+  </div>
 
-
-  <p>
-    <%= form.submit "Login" %>
-  </p>
+  <%= form.submit "Login", class: "btn btn-primary" %>
 <% end %>

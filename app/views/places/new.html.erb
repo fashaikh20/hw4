@@ -2,15 +2,13 @@
 
 <% if @current_user %>
   <%= form_with model: @place do |form| %>
-    <p>
+    <div class="mb-3">
       <%= form.label "name" %>
       <%= form.text_field "name" %>
-    </p>
-    <p>
-      <%= form.submit %>
-    </p>
-  <% end %>
-  
+    </div>
+
+    <%= form.submit "Create Place", class: "btn btn-primary" %>
+  <% end %>  
 <% else %>
   You must first <a href="/sessions/new">login</a> to post.
 <% end %>
