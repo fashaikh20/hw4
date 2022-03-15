@@ -2,17 +2,22 @@
 
 
 <p><a href="/posts/new?place_id=<%= @place.id%>"class="btn btn-success">Create a New Post for <%= @place.name%></a> </p>
+  
   <% if @current_user %>
-    <% for post in @place.posts.where ({user_id: @current_user.id}) %>
-      <h4><%= post.title %></h4>
-      <h7><%= post.posted_on %></h7>
-      <p><%= post.description %></p>
-      <% if post.uploaded_image.attached? %>
-        <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
-      <% else %>
-        <img src="<%= post.image %>" class="img-fluid">
+    <div class="row">
+      <% for post in @place.posts.where ({user_id: @current_user.id}) %>
+        <div class="col-md-4 col-sm-12">
+          <h4><%= post.title %></h4>
+          <h7><%= post.posted_on %></h7>
+          <p><%= post.description %></p>
+          <% if post.uploaded_image.attached? %>
+            <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+          <% else %>
+            <img src="<%= post.image %>" class="img-fluid">
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
+    </div>
     
   <% end %>
 
